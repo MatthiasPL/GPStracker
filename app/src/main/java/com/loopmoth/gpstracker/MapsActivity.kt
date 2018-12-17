@@ -114,7 +114,7 @@ class MapsActivity : AppCompatActivity(), SensorEventListener, OnMapReadyCallbac
         try {
             locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0L, 0f, locationListener)
         } catch(ex: SecurityException) {
-            Log.d("myTag", "Security Exception, no location available");
+            Log.d("Warning", "Security Exception, no location available");
         }
 
     }
@@ -157,7 +157,7 @@ class MapsActivity : AppCompatActivity(), SensorEventListener, OnMapReadyCallbac
                 val cameraPosition = CameraPosition.Builder()
                     .target(user)
                     .build()
-                mMap!!.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+                mMap!!.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
                 locationSet=true
             }
         }
